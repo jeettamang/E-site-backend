@@ -11,6 +11,7 @@ import authRoutes from "./src/routes/auth.routes.js";
 import categoryRoutes from "./src/routes/category.routes.js";
 import productRoutes from "./src/routes/product.routes.js";
 import cartRoutes from "./src/routes/cart.routes.js";
+import addressRoutes from "./src/routes/address.routes.js";
 
 dotenv.config();
 const app = express();
@@ -21,7 +22,7 @@ app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173","http://localhost:5174"],
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     methods: ["PUT", "POST", "GET", "PATCH", "DELETE", "OPTIONS"],
   }),
 );
@@ -31,6 +32,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/category", categoryRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/address", addressRoutes);
 
 const PORT = process.env.PORT || 7777;
 
